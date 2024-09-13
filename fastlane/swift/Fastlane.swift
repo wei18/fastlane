@@ -14062,7 +14062,7 @@ public func xcversion(version: String) {
 }
 
 /// These are all the parsing functions needed to transform our data into the expected types
-func parseArray(fromString: String, function: String = #function) -> [String] {
+public func parseArray(fromString: String, function: String = #function) -> [String] {
     verbose(message: "parsing an Array from data: \(fromString), from function: \(function)")
     let potentialArray: String
     if fromString.count < 2 {
@@ -14073,11 +14073,11 @@ func parseArray(fromString: String, function: String = #function) -> [String] {
     return try! JSONSerialization.jsonObject(with: potentialArray.data(using: .utf8)!, options: []) as! [String]
 }
 
-func parseDictionary(fromString: String, function: String = #function) -> [String: String] {
+public func parseDictionary(fromString: String, function: String = #function) -> [String: String] {
     return parseDictionaryHelper(fromString: fromString, function: function) as! [String: String]
 }
 
-func parseDictionary(fromString: String, function: String = #function) -> [String: Any] {
+public func parseDictionary(fromString: String, function: String = #function) -> [String: Any] {
     return parseDictionaryHelper(fromString: fromString, function: function)
 }
 
